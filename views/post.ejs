@@ -1,0 +1,20 @@
+<%- include("partials/header"); -%>
+  <form class="" action="/posts/deleteOrUpdate" method="post">
+    <h1><%=post.title%></h1>
+    <div class="card-item"><%=post.content%></div>
+
+    <script>
+      function confirmation(){
+        let result = confirm("Are you sure to delete?");
+        if(result){          
+          document.querySelector('.deleteBtn').value = "confirmDelete";
+        }
+      }      
+    </script>
+
+    <button type="submit" class="deleteBtn" name="deleteBtn" value="" onclick="confirmation()">Delete</button>
+    <button class="" type="submit" name="updateBtn" value="blogUpdate">Update</button>
+    <input type="hidden" name="postID" value="<%=post._id%>"></input>
+  </form>
+
+<%- include("partials/footer"); -%>
